@@ -5,6 +5,7 @@ from flask import logging, Flask, render_template, request, flash
 app = Flask(__name__)
 app.secret_key = "cygnus"
 
+
 @app.route('/')
 def index():
     flash(" Survey-site")
@@ -15,6 +16,10 @@ def audio_to_text():
     flash(" Press Start to start recording audio and press Stop to end recording audio")
     return render_template('audio_to_text.html')
 
+
+
+
+
 @app.route('/audio', methods=['POST'])
 def audio():
     r = sr.Recognizer()
@@ -23,7 +28,6 @@ def audio():
   
     with sr.AudioFile('upload/audio.wav') as source:
         audio_data = r.record(source)
-
         text = r.recognize_google(audio_data, language='en-US', show_all=False)
         print(text)
         return_text = "  Did you say : <br> "
@@ -35,7 +39,7 @@ def audio():
                 return_text += str(num+1) +") " + texts['transcript']  + " <br> "
         except:
             return_text = " Sorry!!!! Voice not Detected " '''
-        
+    
     return str(text)
 
 
