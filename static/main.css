@@ -7,8 +7,18 @@
     text-align:center;
 }  
 
-
-.glow {
+.glow{
+  font-size: 50px;
+  color: #000;
+  text-align: center;
+}
+.block1{
+  font-size: 20px;
+  color: #fff;
+  text-align: left;
+  margin: 20px 1px 15px 50px;
+}
+.block{
     font-size: 50px;
     color: #fff;
     text-align: center;

@@ -3,11 +3,11 @@ from flask import logging, Flask, render_template, request, flash
 
 
 app = Flask(__name__)
-app.secret_key = "VatsalParsaniya"
+app.secret_key = "cygnus"
 
 @app.route('/')
 def index():
-    flash(" Welcome to Vatsal's site")
+    flash(" Survey-site")
     return render_template('index.html')
 
 @app.route('/audio_to_text/')
@@ -23,16 +23,20 @@ def audio():
   
     with sr.AudioFile('upload/audio.wav') as source:
         audio_data = r.record(source)
-        text = r.recognize_google(audio_data, language='en-IN', show_all=True)
+
+        text = r.recognize_google(audio_data, language='en-US', show_all=False)
         print(text)
-        return_text = " Did you say : <br> "
-        try:
+        return_text = "  Did you say : <br> "
+    ''' try:
+
+
+
             for num, texts in enumerate(text['alternative']):
                 return_text += str(num+1) +") " + texts['transcript']  + " <br> "
         except:
-            return_text = " Sorry!!!! Voice not Detected "
+            return_text = " Sorry!!!! Voice not Detected " '''
         
-    return str(return_text)
+    return str(text)
 
 
 if __name__ == "__main__":
