@@ -78,8 +78,24 @@
     padding-top: 2%;
     padding-bottom: 2%;
     font-size: 100%;
-    color: #fff;
+    color: #000;
     border-radius: 25px;
-    background-color: #0f4da6;
+    background-color: #e4d33b;
     margin-top: 10%;
+  }
+
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
   }
