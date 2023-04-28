@@ -17,9 +17,6 @@ def audio_to_text():
     return render_template('audio_to_text.html')
 
 
-
-
-
 @app.route('/audio', methods=['POST'])
 def audio():
     r = sr.Recognizer()
